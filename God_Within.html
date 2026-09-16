@@ -131,16 +131,12 @@ function getIntervalSeconds() {
 
 function getIndex(items) {
 
-  // GetIndex has been modified to use Math.random() instead of Date.now().
-  // Seemed like Date.now() was only generating a sub set of numbers.
-  return Math.floor(Math.random() * items);
-
-  // The following code is left for historical reasons.
   const intervalSeconds = getIntervalSeconds();
 
-  // If interval is 0, use the current millisecond.
+  // If interval is 0, use Math.random(). Supposedly this will give
+  // a better result than Date.now().
   if (intervalSeconds === 0) {
-    return Date.now() % items;
+    return Math.floor(Math.random() * items);
   }
 
   // Determine which interval we are currently in.
