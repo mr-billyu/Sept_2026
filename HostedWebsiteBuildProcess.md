@@ -1,5 +1,3 @@
-File: ~/ssh/Billyu_data/Bill/Documents/raspberrypi/HostedWebsiteBuildProcess.md
-
 # The Eternal Family Website Build Process
 
 This website was created so that the apps used here would run on the iphone. The apps include some javascript which must be run on a server to be compatible with the iphone, hence the website. This document explains how the files are interconnected and how they work together to produce the website.
