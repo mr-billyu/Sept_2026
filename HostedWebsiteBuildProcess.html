@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HostedWebsiteBuildProcess</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.6;
+        color: #222;
+    }
+    pre {
+        background: #f4f4f4;
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+    code {
+        background: #f4f4f4;
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-size: 0.95em;
+    }
+    pre code {
+        background: none;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 4px solid #ddd;
+        margin-left: 0;
+        padding-left: 16px;
+        color: #555;
+    }
+    .table-wrapper {
+        overflow-x: auto;
+        margin: 1em 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+    }
+    th {
+        background: #f4f4f4;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+<h1 id="the-eternal-family-website-build-process">The Eternal Family Website Build Process</h1>
+<p>This website was created so that the apps used here would run on the iphone. The apps include some javascript which must be run on a server to be compatible with the iphone, hence the website. This document explains how the files are interconnected and how they work together to produce the website.</p>
+<p><strong>Tools</strong></p>
+<ul>
+<li>/home/pi/bin/md_to_html.py</li>
+<li>
+<ul>
+<li>Converts markdown to html. It has some special options that are used by this website.</li>
+</ul>
+</li>
+</ul>
+<h2 id="directories">Directories</h2>
+<h3 id="documentshostedwebsite">~Documents/HostedWebsite</h3>
+<p>This directory contains the local files for The Eternal Family Website.</p>
+<ul>
+<li>Update index.html with any changes.</li>
+<li>
+<ul>
+<li>git status</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Update index.html if needed.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>gvim index.html</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update remote repository</li>
+<li>
+<ul>
+<li>git status</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git add</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git commit</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git push (This updates the files and publishes the website on github.)</li>
+</ul>
+</li>
+</ul>
+<h4 id="documentshostedwebsitemarkdown">~Documents/HostedWebsiteMarkdown</h4>
+<p>This is a work directory used to modify and convert the 'Document' Markdown files to html. It is also used to store potential 'Document' files.</p>
+<ul>
+<li>Add [TOC] at the top of &lt;filename&gt;.md file if a local table of contents is needed.</li>
+<li>Convert &lt;filename&gt;.md to &lt;filename&gt;.html</li>
+<li>
+<ul>
+<li>md_to_html.py &lt;filename&gt;.md</li>
+</ul>
+</li>
+<li>Copy &lt;filename&gt;.html to HostedWebsite directory.</li>
+<li>
+<ul>
+<li><strong>cp &lt;filename&gt;.html ../HostedWebsite/.</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="documentsprayerfamilytime">~Documents/Prayer/familyTime</h4>
+<p>This directory contains the family_time.html app for the website. </p>
+<p>It also contains the content_version.md file which contains the text displayed by family_time.html and God_Within.html apps. If the content_version.md file is modified, both the  family_time.html and God_Within.html apps must be rebuilt.</p>
+<ul>
+<li>After making changes, create a new family_time.html by running ./build.sh</li>
+<li>Update remote repository.</li>
+<li>
+<ul>
+<li>git status</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git add</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git commit</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git push (This updates the update the files on github.)</li>
+</ul>
+</li>
+<li>Copy family_time.html file to HostedWebsite directory.</li>
+<li>
+<ul>
+<li><strong>cp family_time.html ../HostedWebsite/.</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="documentsprayergod_within">~Documents/Prayer/God_Within</h4>
+<p>This directory contains the God_Within.html app for the website.</p>
+<p>Note that this app uses the content_version.md file from familyTime directory.</p>
+<ul>
+<li>After making changes, create a new God_Within.html file by running ./build.sh</li>
+<li>Update remote repository.</li>
+<li>
+<ul>
+<li>git status</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git add</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git commit</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>git push (This updates the update the files on github.)</li>
+</ul>
+</li>
+<li>Copy God_Within.html file to HostedWebsite directory.</li>
+<li>
+<ul>
+<li><strong>cp God_Within.html ../HostedWebsite/.</strong></li>
+</ul>
+</li>
+</ul>
+</body>
+</html>
